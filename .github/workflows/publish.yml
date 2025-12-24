@@ -26,7 +26,7 @@ jobs:
         run: yarn webpack --mode production
 
       - name: Run tests
-        run: yarn test
+        run: xvfb-run -a yarn test
 
       - name: Publish to Marketplace
         env:

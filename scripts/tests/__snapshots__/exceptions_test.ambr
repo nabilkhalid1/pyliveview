@@ -1,0 +1,7 @@
+# serializer version: 1
+# name: test_base_exception
+  '[{"lineno": 1, "source": "raise BaseException(\'hi\')", "value": "BaseException: hi", "error": true}]'
+# ---
+# name: test_exception
+  '[{"lineno": 1, "source": "raise Exception(\'hi\')", "value": "Exception: hi", "error": true}]'
+# ---

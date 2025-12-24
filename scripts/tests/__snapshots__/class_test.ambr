@@ -1,0 +1,4 @@
+# serializer version: 1
+# name: test_class
+  '[{"lineno": 11, "source": "t = SomeClass(1) #?", "value": "t = 1"}, {"lineno": 3, "source": "num", "value": "1"}, {"lineno": 3, "source": "num", "value": "3"}, {"lineno": 13, "source": "t2 #?", "value": "3"}]'
+# ---

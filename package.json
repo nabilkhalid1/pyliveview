@@ -1,0 +1,209 @@
+{
+  "name": "pyliveview",
+  "displayName": "PyLiveView",
+  "description": "Python Live View",
+  "version": "1.0.0",
+  "author": "Nabil Khalid",
+  "publisher": "nabilab",
+  "license": "Apache-2.0",
+  "engines": {
+    "vscode": "^1.51.0"
+  },
+  "categories": [
+    "Debuggers",
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:pyliveview.runAtCurrentFile",
+    "onCommand:pyliveview.touchBarStart"
+  ],
+  "main": "./dist/extension",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "PyLiveView configuration",
+      "properties": {
+        "pyliveview.iconStyleInGutter": {
+          "type": "boolean",
+          "default": true,
+          "description": "Use decorative icon style in the gutter. ie: To the left of the editor, next to the line numbers."
+        },
+        "pyliveview.updateFrequency": {
+          "type": "number",
+          "default": 500,
+          "description": "Set the minimum time between PyLiveView live updates in milliseconds. A higher number means a longer time between updates. (Valid range: 100 - 1000)"
+        },
+        "pyliveview.disableHotModeWarning": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disables the Hot Mode warning upon entering a PyLiveView session."
+        },
+        "pyliveview.maxLineLength": {
+          "type": "number",
+          "default": 100,
+          "description": "The maximum length of line decorations. Lines longer than this are truncated (ex: 97, 98, 99, ... )"
+        },
+        "pyliveview.printLoggingEnabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Display PyLiveView console output."
+        },
+        "pyliveview.showLoadingIcon": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show a loading icon in the editor title / touch bar while PyLiveView is processing."
+        },
+        "pyliveview.logErrors": {
+          "type": "boolean",
+          "default": false,
+          "description": "Display all errors in the console output."
+        },
+        "pyliveview.pythonPath": {
+          "type": "string",
+          "description": "A different path to python - MUST be version 3.9 or greater"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "pyliveview.runAtCurrentFile",
+        "category": "PyLiveView",
+        "title": "Start PyLiveView on the current file.",
+        "icon": {
+          "light": "./media/pyliveview-blue.png",
+          "dark": "./media/pyliveview-blue.png"
+        }
+      },
+      {
+        "command": "pyliveview.loading",
+        "category": "PyLiveView",
+        "title": "PyLiveView (Loading)",
+        "icon": {
+          "light": "./media/pyliveview-orange.png",
+          "dark": "./media/pyliveview-orange.png"
+        }
+      },
+      {
+        "command": "pyliveview.stopRunning",
+        "category": "PyLiveView",
+        "title": "Stop all running PyLiveView sessions.",
+        "icon": {
+          "light": "./media/pyliveview-red.png",
+          "dark": "./media/pyliveview-red.png"
+        }
+      },
+      {
+        "command": "pyliveview.touchBarStart",
+        "title": "Start PyLiveView on the current file.",
+        "icon": {
+          "light": "./media/pyliveview-blue-border.png",
+          "dark": "./media/pyliveview-blue-border.png"
+        }
+      },
+      {
+        "command": "pyliveview.touchBarLoading",
+        "title": "PyLiveView (Loading)",
+        "icon": {
+          "light": "./media/pyliveview-orange-border.png",
+          "dark": "./media/pyliveview-orange-border.png"
+        }
+      },
+      {
+        "command": "pyliveview.touchBarStop",
+        "title": "Stop all running PyLiveView sessions.",
+        "icon": {
+          "light": "./media/pyliveview-red-border.png",
+          "dark": "./media/pyliveview-red-border.png"
+        }
+      }
+    ],
+    "menus": {
+      "touchBar": [
+        {
+          "command": "pyliveview.stopRunning",
+          "when": "inPyLiveViewContext && !pyliveview.isLoading"
+        },
+        {
+          "command": "pyliveview.touchBarLoading",
+          "when": "inPyLiveViewContext && pyliveview.isLoading"
+        },
+        {
+          "command": "pyliveview.touchBarStart",
+          "when": "editorLangId == python && !inPyLiveViewContext"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "pyliveview.stopRunning",
+          "when": "inPyLiveViewContext && !pyliveview.isLoading",
+          "group": "navigation"
+        },
+        {
+          "command": "pyliveview.loading",
+          "when": "inPyLiveViewContext && pyliveview.isLoading",
+          "group": "navigation"
+        },
+        {
+          "command": "pyliveview.runAtCurrentFile",
+          "when": "editorLangId == python && !inPyLiveViewContext",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "repository": {
+    "url": "https://github.com/nabilkhalid1/pyliveview"
+  },
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#6495ed"
+  },
+  "build": {
+    "extraResources": "scripts"
+  },
+  "scripts": {
+    "vscode:prepublish": "webpack --mode production",
+    "webpack": "webpack --mode development",
+    "webpack-dev": "webpack --mode development --watch",
+    "test-compile": "tsc -p ./",
+    "postinstall": "yarn run copy-files",
+    "copy-files": "copyfiles -E -u 1 \"scripts/test.py\" \"out/test/\"",
+    "lint": "eslint src --ext ts",
+    "pretest": "yarn webpack && yarn run test-compile && yarn run copy-files",
+    "test": "node ./out/test/runTest.js",
+    "watch": "tsc -watch -p ./",
+    "ext:package": "@vscode/vsce package",
+    "ext:publish": "@vscode/vsce publish"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@types/copy-webpack-plugin": "^6.3.0",
+    "@types/glob": "^8.1.0",
+    "@types/js-beautify": "^1.13.1",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^24.0.0",
+    "@types/tmp": "^0.2.0",
+    "@types/vscode": "^1.51.0",
+    "@types/webpack": "^4.41.25",
+    "@typescript-eslint/eslint-plugin": "^8.50.0",
+    "@typescript-eslint/parser": "^8.50.0",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.2.1",
+    "copy-webpack-plugin": "^12.0.2",
+    "copyfiles": "^2.4.0",
+    "eslint": "^9.39.2",
+    "glob": "^8.1.0",
+    "mocha": "^10.8.2",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.50.0",
+    "webpack": "^5.96.0",
+    "webpack-cli": "^5.1.0"
+  },
+  "dependencies": {
+    "js-beautify": "^1.15.1",
+    "tmp": "^0.2.4"
+  },
+  "packageManager": "yarn@4.12.0"
+}

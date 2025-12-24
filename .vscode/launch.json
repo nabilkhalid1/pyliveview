@@ -1,0 +1,97 @@
+// A launch configuration that compiles the extension and then opens it inside a new window
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Current File",
+      "type": "debugpy",
+      "request": "launch",
+      "stopOnEntry": true,
+      "python": "${command:python.interpreterPath}",
+      "program": "${file}",
+      "cwd": "${workspaceFolder}",
+      "env": {},
+      "envFile": "${workspaceFolder}/.env",
+    },
+    {
+      "name": "pyliveview.py Debug Session Windows",
+      "type": "debugpy",
+      "request": "launch",
+      "stopOnEntry": true,
+      "python": "${command:python.interpreterPath}",
+      "program": "${workspaceFolder}/\\scripts/\\pyliveview.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "env": {
+        "PYLIVEVIEW_DEBUG_SESSION": "true"
+      },
+      "envFile": "${workspaceFolder}/.env",
+      "args": [
+        "${workspaceFolder}/scripts/test.py"
+      ]
+    },
+    {
+      "name": "pyliveview.py Debug Session Linux/OSX",
+      "type": "debugpy",
+      "request": "launch",
+      "stopOnEntry": true,
+      "python": "${command:python.interpreterPath}",
+      "program": "${workspaceFolder}/scripts/pyliveview.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "env": {
+        "PYLIVEVIEW_DEBUG_SESSION": "true"
+      },
+      "envFile": "${workspaceFolder}/.env",
+      "args": [
+        "${workspaceFolder}/scripts/test.py"
+      ]
+    },
+    {
+      "name": "Launch Extension",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": [
+        "--disable-extensions",
+        "--extensionDevelopmentPath=${workspaceRoot}"
+      ],
+      "outFiles": [
+        "${workspaceRoot}/out/**/*.js"
+      ],
+      "preLaunchTask": "${defaultBuildTask}"
+    },
+    {
+      "name": "Extension Tests",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": [
+        "--disable-extensions",
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "--extensionTestsPath=${workspaceFolder}/out/test/suite/index"
+      ],
+      "outFiles": [
+        "${workspaceFolder}/out/test/**/*.js"
+      ],
+      "preLaunchTask": "${defaultBuildTask}"
+    },
+    {
+      "name": "Python: Run Tests",
+      "type": "debugpy",
+      "request": "launch",
+      "python": "${command:python.interpreterPath}",
+      "module": "pytest",
+      "args": [
+        "scripts/tests/",
+        "-v"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}\\scripts"
+      }
+    }
+  ]
+}

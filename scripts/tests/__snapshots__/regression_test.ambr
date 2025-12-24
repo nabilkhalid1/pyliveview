@@ -1,0 +1,16 @@
+# serializer version: 1
+# name: test_bare_variable_name_error
+  '[{"lineno": 1, "source": "asd", "value": "NameError: name \'asd\' is not defined", "error": true}]'
+# ---
+# name: test_mixed_results_safety
+  '[{"lineno": 1, "source": "a = 1 # ?", "value": "a = 1"}, {"lineno": 2, "source": "1/0", "value": "ZeroDivisionError: division by zero", "error": true}]'
+# ---
+# name: test_name_error_after_success
+  '[{"lineno": 1, "source": "a = 1 # ?", "value": "a = 1"}, {"lineno": 2, "source": "asd", "value": "NameError: name \'asd\' is not defined", "error": true}]'
+# ---
+# name: test_print_side_effect_safety
+  '[{"lineno": 8, "source": "print(merge(nums1, m, nums2, n))", "value": "None"}, {"lineno": 10, "source": "nums1", "value": "[1, 2, 2, 3, 5, 6]"}]'
+# ---
+# name: test_syntax_error_robustness
+  '[{"lineno": 1, "source": "if True", "value": "expected \':\'", "error": true}]'
+# ---

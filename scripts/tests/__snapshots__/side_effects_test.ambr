@@ -1,0 +1,4 @@
+# serializer version: 1
+# name: test_side_effects
+  '[{"lineno": 1, "source": "b = [*range(1, 4)]  # ?  <-- Comment Macro ~ Result ->", "value": "b = [1, 2, 3]"}, {"lineno": 3, "source": "print(\'before\', b)", "value": "before [1, 2, 3]"}, {"lineno": 4, "source": "b.pop()  # ?", "value": "3"}, {"lineno": 5, "source": "print(\'after\', b)", "value": "after [1, 2]"}, {"lineno": 7, "source": "b  # ?", "value": "[1, 2]"}, {"lineno": 8, "source": "b", "value": "[1, 2]"}]'
+# ---

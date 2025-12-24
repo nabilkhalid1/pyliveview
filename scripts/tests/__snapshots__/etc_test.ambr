@@ -1,0 +1,4 @@
+# serializer version: 1
+# name: test_etc
+  '[{"lineno": 2, "source": "tup = (1, 2, 3)  # ?", "value": "tup = (1, 2, 3)"}, {"lineno": 3, "source": "tup", "value": "(1, 2, 3)"}, {"lineno": 5, "source": "1 < 0  # ?", "value": "False"}, {"lineno": 7, "source": "text = \'happy\'  # ?", "value": "text = happy"}, {"lineno": 9, "source": "text", "value": "happy"}, {"lineno": 12, "source": "x = \\"foo\\\\nfaa\\"  # ?", "value": "x = foo\\nfaa"}, {"lineno": 14, "source": "a=1 #?", "value": "a = 1"}]'
+# ---

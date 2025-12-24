@@ -1,0 +1,4 @@
+# serializer version: 1
+# name: test_basic
+  '[{"lineno": 4, "source": "a", "value": "Hello"}, {"lineno": 5, "source": "b", "value": "3"}]'
+# ---

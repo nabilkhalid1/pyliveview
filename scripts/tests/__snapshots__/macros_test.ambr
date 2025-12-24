@@ -1,0 +1,4 @@
+# serializer version: 1
+# name: test_macros
+  '[{"lineno": 2, "source": "[6.4, 2.8, 5.6, 2.2, 2],  # ?", "value": "([6.4, 2.8, 5.6, 2.2, 2],)"}, {"lineno": 7, "source": "labels = [x[-1] for x in inputs]  # ?", "value": "labels = [2, 1, 2]"}, {"lineno": 7, "source": "labels = [x[-1] for x in inputs]  # ?", "value": "labels = [2, 1, 2]"}, {"lineno": 7, "source": "labels = [x[-1] for x in inputs]  # ?", "value": "labels = [2, 1, 2]"}, {"lineno": 7, "source": "labels = [x[-1] for x in inputs]  # ?", "value": "labels = [2, 1, 2]"}, {"lineno": 9, "source": "hat = labels  # ?", "value": "hat = [2, 1, 2]"}]'
+# ---

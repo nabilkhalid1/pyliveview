@@ -1,0 +1,19 @@
+{
+  "name": "PyLiveView",
+  "author": "Scott Doucet",
+  "version": "0.4.3",
+  "scripts": {
+    "test": "pytest",
+    "test:snapshot-update": "pytest --snapshot-update",
+    "test:watch": "pytest-watch --ignore=scripts/tests/__snapshots__/"
+  },
+  "dev_dependencies": {
+    "autopep8": "~=2.0.4",
+    "flake8": "~=7.0.0",
+    "hunter": "~=3.9.0",
+    "pytest-watch": "~=4.2.0",
+    "pytest": "~=8.0.0",
+    "rope": "~=1.12.0",
+    "syrupy": "~=4.6.1"
+  }
+}

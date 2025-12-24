@@ -1,0 +1,4 @@
+# serializer version: 1
+# name: test_print
+  '[{"lineno": 10, "source": "print(features)", "value": "[[6.4, 2.8, 5.6, 2.2], [5.0, 2.3, 3.3, 1.0], [4.9, 2.5, 4.5, 1.7]]"}, {"lineno": 11, "source": "print(labels)", "value": "[2, 1, 2]"}, {"lineno": 12, "source": "print(\'Hello\')", "value": "Hello"}, {"lineno": 13, "source": "print(r\'Hello\')", "value": "Hello"}, {"lineno": 14, "source": "print(u\'Hello\')", "value": "Hello"}]'
+# ---

@@ -1,0 +1,4 @@
+# serializer version: 1
+# name: test_functions
+  '[{"lineno": 8, "source": "head = None  # ?", "value": "head = None"}, {"lineno": 10, "source": "head = (new_head, head)  # ?", "value": "head = (3, None)"}, {"lineno": 10, "source": "head = (new_head, head)  # ?", "value": "head = (2, (3, None))"}, {"lineno": 10, "source": "head = (new_head, head)  # ?", "value": "head = (1, (2, (3, None)))"}, {"lineno": 15, "source": "l", "value": "(1, (2, (3, None)))"}]'
+# ---

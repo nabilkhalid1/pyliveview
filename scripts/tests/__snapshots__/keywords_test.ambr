@@ -1,0 +1,4 @@
+# serializer version: 1
+# name: test_keywords
+  '[{"lineno": 7, "source": "a", "value": "1"}, {"lineno": 7, "source": "a", "value": "2"}, {"lineno": 7, "source": "a", "value": "3"}, {"lineno": 13, "source": "i", "value": "0"}, {"lineno": 13, "source": "i", "value": "1"}, {"lineno": 13, "source": "i", "value": "2"}, {"lineno": 13, "source": "i", "value": "3"}, {"lineno": 13, "source": "i", "value": "4"}]'
+# ---

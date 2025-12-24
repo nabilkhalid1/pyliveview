@@ -13,7 +13,6 @@ src/**
 
 # Build artifacts
 node_modules/**
-dist/**
 
 # Python test files
 scripts/tests/**

@@ -25,6 +25,12 @@ jobs:
       - name: Build extension
         run: yarn webpack --mode production
 
+      - name: Compile tests
+        run: yarn run test-compile
+
+      - name: Copy test files
+        run: yarn run copy-files
+
       - name: Run tests
         run: xvfb-run -a yarn test
 
@@ -38,6 +44,6 @@ jobs:
         if: success()
         run: echo "✅ PyLiveView extension published successfully to VS Code Marketplace!"
 
-      - name: Notify on Failure  
+      - name: Notify on Failure
         if: failure()
         run: echo "❌ Failed to publish PyLiveView extension. Check the logs above."

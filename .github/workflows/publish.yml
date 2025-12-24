@@ -33,3 +33,11 @@ jobs:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
         run: |
           npx --yes vsce publish --pat $VSCE_PAT
+
+      - name: Notify on Success
+        if: success()
+        run: echo "✅ PyLiveView extension published successfully to VS Code Marketplace!"
+
+      - name: Notify on Failure  
+        if: failure()
+        run: echo "❌ Failed to publish PyLiveView extension. Check the logs above."

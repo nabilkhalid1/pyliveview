@@ -166,7 +166,6 @@
     "webpack": "webpack --mode development",
     "webpack-dev": "webpack --mode development --watch",
     "test-compile": "tsc -p ./",
-    "postinstall": "yarn run copy-files",
     "copy-files": "copyfiles -E -u 1 \"scripts/test.py\" \"out/test/\"",
     "lint": "eslint src --ext ts",
     "pretest": "yarn webpack && yarn run test-compile && yarn run copy-files",

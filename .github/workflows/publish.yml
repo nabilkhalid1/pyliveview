@@ -55,7 +55,7 @@ jobs:
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
         run: |
-          npx --yes @vscode/vsce publish --pat $VSCE_PAT
+          npx --yes @vscode/vsce publish --no-yarn --pat $VSCE_PAT
 
       - name: Notify on Success
         if: success()
